@@ -1,0 +1,20 @@
+<h1 class="curret-category"><%= params[:category]%></h1>
+<% if @books.count==0 %>
+<h1>no books here</h1>\
+<% else%>
+<div class="container">
+<div class="row">
+	
+
+<% @books.each do |book| %>
+<div class="col-md-4">
+<a href="/books/<%= book.id %>">
+	<%= image_tag book.book_img.url(:book_index),class: "book" %>
+</a>
+</div>
+
+<% end %>
+</div>
+</div>
+<% end %>
+<%= link_to "Add Book",new_book_path,class:"btn btn-custom",style:"margin-left:200px" %>
